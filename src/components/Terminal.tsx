@@ -64,16 +64,16 @@ const Terminal = () => {
   
   // ASCII Cube variables
   const [cubeFrame, setCubeFrame] = useState('');
-  const width = 80;
-  const height = 40;
+  const width = 100;
+  const height = 50;
   const zBuffer = useRef<number[]>(new Array(width * height).fill(0));
   const buffer = useRef<string[]>(new Array(width * height).fill(' '));
   const A = useRef(0);
   const B = useRef(0);
   const C = useRef(0);
   const distanceFromCam = 100;
-  const K1 = 20;
-  const incrementSpeed = 0.03;
+  const K1 = 25;
+  const incrementSpeed = 0.015;
   
   // Calculate X coordinate after projection
   const calculateX = (i: number, j: number, k: number) => {
@@ -135,14 +135,14 @@ const Terminal = () => {
     C.current += 0.01;
     
     // Render the cube surfaces
-    for (let cubeX = -10; cubeX < 10; cubeX += 0.5) {
-      for (let cubeY = -10; cubeY < 10; cubeY += 0.5) {
-        calculateForSurface(cubeX, cubeY, -10, '@');
-        calculateForSurface(10, cubeY, cubeX, '$');
-        calculateForSurface(-10, cubeY, -cubeX, '~');
-        calculateForSurface(-cubeX, cubeY, 10, '#');
-        calculateForSurface(cubeX, -10, -cubeY, ';');
-        calculateForSurface(cubeX, 10, cubeY, '+');
+    for (let cubeX = -12; cubeX < 12; cubeX += 0.4) {
+      for (let cubeY = -12; cubeY < 12; cubeY += 0.4) {
+        calculateForSurface(cubeX, cubeY, -12, '@');
+        calculateForSurface(12, cubeY, cubeX, '$');
+        calculateForSurface(-12, cubeY, -cubeX, '~');
+        calculateForSurface(-cubeX, cubeY, 12, '#');
+        calculateForSurface(cubeX, -12, -cubeY, ';');
+        calculateForSurface(cubeX, 12, cubeY, '+');
       }
     }
     
